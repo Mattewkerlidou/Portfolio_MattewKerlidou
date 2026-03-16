@@ -1,0 +1,32 @@
+* {
+    cursor: none !important;
+}
+
+/* 2. Apparence de base de ton curseur custom */
+#custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #6e5cff;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none; /* Indispensable pour pouvoir cliquer sur les boutons à travers le curseur */
+    transform: translate(-50%, -50%);
+    /* J'ai adouci la transition pour que le changement de couleur et de taille soit fluide */
+    transition: transform 0.15s ease, background-color 0.2s ease, border-color 0.2s ease; 
+    mix-blend-mode: difference;
+    z-index: 99999; /* Toujours au premier plan */
+    filter: drop-shadow(0 0 6px #6e5cff) drop-shadow(0 0 12px #6e5cff);
+}
+
+/* 3. Apparence quand le curseur survole un lien ou un bouton (état .hover géré par ton JS) */
+#custom-cursor.hover {
+    transform: translate(-50%, -50%) scale(1.5); /* Grossit de 50% */
+    background-color: rgba(110, 92, 255, 0.2); /* Se remplit d'un léger voile violet */
+    border-color: #00ffff; /* La bordure devient cyan */
+    filter: drop-shadow(0 0 8px #00ffff) drop-shadow(0 0 15px #00ffff); /* Le néon devient cyan aussi */
+}
+
+@media (pointer: coarse) {
+    #custom-cursor { display: none !important; }
+    * { cursor: auto !important; }
+}

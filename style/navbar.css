@@ -1,0 +1,88 @@
+/* =========================================
+   BARRE DE NAVIGATION (navbar.css)
+========================================= */
+
+/* 1. La boîte globale (Effet Pilule & Glassmorphism) */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 15px;
+    
+    /* Effet verre dépoli */
+    background: rgba(18, 18, 18, 0.7);
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); /* Pour Safari */
+    
+    /* Bordure néon discrète et forme pilule */
+    border: 2px solid rgba(110, 92, 255, 0.5);
+    border-radius: 50px; 
+    z-index: 1000;
+    
+    /* Halo fixe au lieu d'une animation qui clignote en boucle */
+    box-shadow: 0 0 15px rgba(110, 92, 255, 0.2), 
+                inset 0 0 10px rgba(110, 92, 255, 0.1);
+    transition: all 0.4s ease;
+}
+
+/* Léger effet quand la souris survole toute la navbar */
+.navbar:hover {
+    border-color: #6e5cff;
+    box-shadow: 0 0 20px rgba(110, 92, 255, 0.5);
+}
+
+.nav-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* 2. Les boutons / liens */
+.nav-btn {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 30px; /* Les boutons sont aussi ronds */
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* 3. Effet au survol (devient Cyan) */
+.nav-btn:hover {
+    color: #121212;
+    background-color: #00ffff;
+    box-shadow: 0 0 15px #00ffff;
+    transform: translateY(-2px);
+}
+
+/* 4. Indicateur de page active (Violet) */
+.nav-btn.active {
+    color: #121212;
+    background-color: #6e5cff;
+    box-shadow: 0 0 15px #6e5cff;
+    font-weight: bold;
+}
+
+/* =========================================
+   5. RESPONSIVE (Mobiles & Tablettes)
+========================================= */
+@media screen and (max-width: 768px) {
+    .navbar {
+        top: 15px;
+        width: 90%; /* Prend la largeur de l'écran */
+        padding: 5px 10px;
+        border-radius: 15px; /* Moins arrondi sur mobile */
+    }
+    
+    .nav-container {
+        justify-content: space-around; /* Répartit les boutons */
+        gap: 0;
+    }
+
+    .nav-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}

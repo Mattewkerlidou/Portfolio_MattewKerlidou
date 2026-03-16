@@ -1,0 +1,192 @@
+/* =========================================
+   1. VARIABLES & RESET
+========================================= */
+:root {
+    --bg-main: #121212;
+    --bg-alt: #1a1a1a;
+    --text-main: #e0e0e0;
+    --text-light: #ffffff;
+    --color-primary: #6e5cff; /* Ton violet néon */
+    --color-secondary: #00ffff; /* Ton cyan */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* =========================================
+   2. BOUTONS & LIENS GLOBAUX
+========================================= */
+/* Bouton principal (Fond rempli) */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 25px;
+    border: 2px solid var(--color-primary);
+    background: var(--color-primary);
+    color: var(--bg-main);
+    font-size: 1.1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary);
+}
+
+/* Bouton du Hero (Fond transparent) */
+#btn-projets {
+    padding: 12px 25px;
+    border: 2px solid var(--color-primary);
+    background: transparent;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#btn-projets:hover {
+    background-color: var(--color-primary);
+    color: var(--bg-main);
+    box-shadow: 0 0 15px var(--color-primary);
+}
+
+/* Lien texte cyan */
+.link-primary {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.link-primary:hover {
+    color: var(--color-primary);
+    text-shadow: 0 0 10px var(--color-primary);
+}
+
+/* =========================================
+   3. HERO SECTION (Accueil)
+========================================= */
+#hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--bg-alt), #222222);
+}
+
+#hero h1 {
+    font-size: 4rem;
+    color: var(--color-primary);
+    text-shadow: 0 0 10px var(--color-primary);
+}
+
+#hero h2 {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: var(--text-light);
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   4. SECTIONS GÉNÉRIQUES
+========================================= */
+.home-section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.dark-bg {
+    background-color: var(--bg-alt);
+}
+
+.section-title {
+    color: var(--color-primary);
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    text-shadow: 0 0 5px var(--color-primary);
+}
+
+/* =========================================
+   5. TEASER "À PROPOS"
+========================================= */
+#about-teaser {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    text-align: left; /* Annule le centrage de .home-section */
+}
+
+#about-teaser .avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid var(--color-primary);
+    box-shadow: 0 0 20px var(--color-primary);
+    object-fit: cover;
+}
+
+.teaser-content {
+    max-width: 500px;
+}
+
+.teaser-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* =========================================
+   6. CONTACT CALL-TO-ACTION
+========================================= */
+#contact-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   7. RESPONSIVE (Mobiles & Tablettes)
+========================================= */
+@media screen and (max-width: 768px) {
+    #hero h1 {
+        font-size: 3rem;
+    }
+
+    #hero h2 {
+        font-size: 1.5rem;
+    }
+
+    #about-teaser {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    #about-teaser .avatar {
+        width: 150px;
+        height: 150px;
+    }
+}

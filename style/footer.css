@@ -1,0 +1,79 @@
+/* =========================================
+   8. FOOTER
+========================================= */
+.site-footer {
+    background-color: var(--bg-alt); /* Utilise ton fond gris sombre */
+    border-top: 2px solid var(--color-primary); /* Liseré violet néon en haut */
+    padding: 40px 20px 20px;
+    margin-top: 50px;
+    box-shadow: 0 -5px 20px rgba(110, 92, 255, 0.1); /* Léger halo vers le haut */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(224, 224, 224, 0.1);
+}
+
+.footer-logo h3 {
+    font-size: 1.8rem;
+    color: var(--text-light);
+}
+
+.footer-logo .dot {
+    color: var(--color-primary);
+    text-shadow: 0 0 10px var(--color-primary);
+}
+
+.footer-logo p {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-top: 5px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--bg-main);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    color: var(--color-secondary); /* Devient cyan au survol */
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 15px var(--color-secondary);
+    transform: translateY(-5px); /* Petit bond vers le haut */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}
+
+/* =========================================
+   RESPONSIVE FOOTER
+========================================= */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+}

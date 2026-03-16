@@ -1,0 +1,81 @@
+.projects-page {
+    padding-top: 130px;
+    min-height: 80vh;
+}
+
+.projects-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    width: 320px;
+    height: 220px;
+    border: 2px solid rgba(110, 92, 255, 0.4);
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: var(--bg-alt);
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 10px 30px rgba(110, 92, 255, 0.4);
+    transform: translateY(-10px);
+}
+
+.project-preview {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px) brightness(0.6);
+    transition: all 0.5s ease;
+}
+
+.project-card:hover .project-preview {
+    filter: blur(0) brightness(1);
+    transform: scale(1.1);
+}
+
+.project-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.9) 0%, transparent 100%);
+    z-index: 2;
+}
+
+.project-status {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-secondary);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.project-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Alert styles */
+.hidden { display: none !important; }
+#custom-alert { position: fixed; inset: 0; display: flex; justify-content: center; align-items: center; z-index: 9999; }
+.alert-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
+.alert-box { position: relative; background: var(--bg-alt); border: 2px solid var(--color-primary); padding: 30px; border-radius: 15px; text-align: center; }
