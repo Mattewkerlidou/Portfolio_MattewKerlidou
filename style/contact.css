@@ -3,45 +3,53 @@
 ========================================= */
 
 .contact-section {
-    padding: 150px 20px 80px; /* 150px en haut pour éviter la navbar */
+    padding: 130px 20px 80px;
     max-width: 1100px;
     margin: 0 auto;
+    min-height: 80vh;
+}
+
+.contact-header {
     text-align: center;
+    margin-bottom: 60px;
 }
 
 .contact-subtitle {
     color: #a0a0a0;
-    margin-bottom: 50px;
     font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Conteneur global scindé en 2 */
+/* -------------------------------
+   LAYOUT (Infos à gauche, Form à droite)
+--------------------------------*/
 .contact-wrapper {
     display: flex;
-    justify-content: space-between;
-    gap: 40px;
+    gap: 60px;
+    flex-wrap: wrap;
     background: var(--bg-alt);
-    border: 1px solid rgba(110, 92, 255, 0.3);
-    border-radius: 20px;
     padding: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(110, 92, 255, 0.2);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    text-align: left;
 }
 
-/* =========================================
-   PARTIE GAUCHE (Infos & Réseaux)
-========================================= */
-.contact-info {
+.contact-info, .contact-form-container {
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    min-width: 300px;
 }
 
+/* -------------------------------
+   PARTIE GAUCHE (Infos)
+--------------------------------*/
 .contact-info h3 {
     color: var(--color-primary);
     margin-bottom: 20px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    border-bottom: 2px solid rgba(110, 92, 255, 0.2);
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
 .info-list {
@@ -54,109 +62,126 @@
     align-items: center;
     gap: 15px;
     margin-bottom: 20px;
-    font-size: 1.1rem;
+    color: var(--text-light);
+    font-size: 1.05rem;
 }
 
 .info-icon {
     font-size: 1.5rem;
-    background: rgba(110, 92, 255, 0.1);
-    padding: 10px;
-    border-radius: 50%;
-    border: 1px solid var(--color-primary);
 }
 
+/* -------------------------------
+   RÉSEAUX SOCIAUX (Boutons Néon)
+--------------------------------*/
 .contact-socials {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap; /* Permet de passer à la ligne sur petit écran */
 }
 
-.contact-socials .social-icon {
-    padding: 10px 20px;
-    border: 2px solid var(--color-secondary);
-    color: var(--color-secondary);
-    border-radius: 8px;
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: var(--text-light);
     text-decoration: none;
     font-weight: bold;
-    transition: all 0.3s ease;
-    width: auto; /* Écrase la taille fixe du footer si besoin */
-    height: auto;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.contact-socials .social-icon:hover {
-    background: var(--color-secondary);
-    color: var(--bg-main);
-    box-shadow: 0 0 15px var(--color-secondary);
+.social-btn svg {
+    transition: fill 0.3s ease;
 }
 
-/* =========================================
+.social-btn:hover {
+    background: rgba(110, 92, 255, 0.1);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(110, 92, 255, 0.3);
+}
+
+.social-btn:hover svg {
+    fill: var(--color-primary);
+}
+
+/* -------------------------------
    PARTIE DROITE (Formulaire)
-========================================= */
-.contact-form-container {
-    flex: 1.5; /* Prend un peu plus de place que les infos */
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
+--------------------------------*/
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    margin-bottom: 25px;
 }
 
 .form-group label {
-    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 8px;
     color: var(--text-light);
-    font-weight: 500;
+    font-size: 0.95rem;
+    font-weight: bold;
 }
 
-.form-group input,
+.form-group input[type="text"],
+.form-group input[type="email"],
 .form-group textarea {
     width: 100%;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid transparent;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
     color: var(--text-main);
     font-size: 1rem;
-    outline: none;
     transition: all 0.3s ease;
+    font-family: inherit;
 }
 
-/* Effet Néon quand on clique dans un champ */
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--color-primary);
-    background: rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 10px rgba(110, 92, 255, 0.3);
+    box-shadow: 0 0 15px rgba(110, 92, 255, 0.3);
+    outline: none;
+    background: rgba(110, 92, 255, 0.05);
 }
 
-/* Personnalisation du texte d'exemple (placeholder) */
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #666;
+/* -------------------------------
+   STYLE DU BOUTON PIÈCE JOINTE
+--------------------------------*/
+.file-group label {
+    color: var(--color-secondary);
 }
 
-.form-submit {
-    margin-top: 10px;
-    width: 100%; /* Le bouton prend toute la largeur */
+input[type="file"] {
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    cursor: pointer;
+    width: 100%;
 }
 
-/* =========================================
-   RESPONSIVE (Mobiles & Tablettes)
-========================================= */
-@media screen and (max-width: 850px) {
-    .contact-wrapper {
-        flex-direction: column;
-        padding: 25px;
-    }
-
-    .contact-info {
-        margin-bottom: 30px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding-bottom: 30px;
-    }
+input[type="file"]::file-selector-button {
+    background: rgba(110, 92, 255, 0.1);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-right: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
+
+input[type="file"]::file-selector-button:hover {
+    background: var(--color-primary);
+    color: var(--bg-main);
+    box-shadow: 0 0 15px rgba(110, 92, 255, 0.5);
